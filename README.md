@@ -1,4 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+<h1 align="center">My Shop</h1>
+
+<p align="center">This project was created to create skills with Nextjs</p>
+<h3 align="center">
+    <a href="https://nextjs.org/docs">🔗 Nextjs </a>
+</h3>
+
+<p align="center"><img src="https://media.giphy.com/media/mSKMcT3Xqe8s8/giphy.gif"/></p><br>
+
+<p align="center">Next.js is a framework for React. What does that mean? React is a Javascript library for building interfaces and Next is considered a framework because it adds several features on top of React. </p><br>
+
+
+
+<h4 align="center"> 
+	🚧  My shop  Under construction...  🚧
+</h4><br>
+
+This project aims to create skills with the Vitejs tool, Reactjs and its ecosystem, ContextApi, Hoocks and React Router Dom.<br>
 
 ## Getting Started
 
@@ -14,25 +32,30 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Let's start a new adventure 🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+I'm here asking the gods to help you!
 
-To learn more about Next.js, take a look at the following resources:
+<p align="center"><img src="https://media.giphy.com/media/10kRzcdynCwUj6/giphy.gif"/></p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[<img src="https://img.shields.io/badge/medium-%2312100E.svg?&style=for-the-badge&logo=medium&logoColor=white" />](https://devmarilia-frontend.medium.com/)  [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/mar%C3%ADlia-augusta/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+
+
+
+
+
+
+
+
+
