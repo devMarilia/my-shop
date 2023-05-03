@@ -6,12 +6,14 @@ import { HomeContainer, Product } from "../styles/pages/home"
 import shirt1 from '../../public/assets/shirt/shirt1.png'
 import shirt2 from '../../public/assets/shirt/shirt2.png'
 import shirt3 from '../../public/assets/shirt/shirt3.png'
+import shirt4 from '../../public/assets/shirt/shirt4.png'
 
 
 export default function Home() {
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 3,
+      spacing: 48
     }
   })
   return ( 
@@ -43,7 +45,7 @@ export default function Home() {
       </footer>
     </Product>
     <Product className="keen-slider__slide">
-      <Image src={shirt3} alt="shirt01" width={520} height={480}/>
+      <Image src={shirt4} alt="shirt01" width={520} height={480}/>
 
       <footer>
         <strong>Camiseta X</strong>
