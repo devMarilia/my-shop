@@ -4,11 +4,11 @@ import 'keen-slider/keen-slider.min.css'
 import { HomeContainer, Product } from "../styles/pages/home"
 
 import shirt1 from '../../public/assets/shirt/shirt1.png'
-import shirt2 from '../../public/assets/shirt/shirt2.png'
-import shirt3 from '../../public/assets/shirt/shirt3.png'
-import shirt4 from '../../public/assets/shirt/shirt4.png'
+
 import { stripe } from "../lib/stripe"
-import { GetServerSideProps } from "next"
+import { GetStaticProps } from "next"
+import Stripe from 'stripe';
+
 
 interface HomeProps {
   products : {
@@ -45,7 +45,7 @@ export default function Home({products}: HomeProps) {
   </HomeContainer>
 )}
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
     expand: ['data.default_price']
   })
@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: price.unit_amount / 100
+      price: Number(price.unit_amount) / 100
     }
   })
 
