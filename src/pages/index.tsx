@@ -7,9 +7,11 @@ import shirt1 from '../../public/assets/shirt/shirt1.png'
 import shirt2 from '../../public/assets/shirt/shirt2.png'
 import shirt3 from '../../public/assets/shirt/shirt3.png'
 import shirt4 from '../../public/assets/shirt/shirt4.png'
+import { stripe } from "../lib/stripe"
+import { GetServerSideProps } from "next"
 
 
-export default function Home() {
+export default function Home(props) {
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 3,
@@ -18,6 +20,7 @@ export default function Home() {
   })
   return ( 
   <HomeContainer ref={sliderRef} className="keen-slider">
+    <pre>{JSON.stringify(props.list)}</pre>
     <Product className="keen-slider__slide">
       <Image src={shirt1} alt="shirt01" width={520} height={480}/>
 
@@ -54,3 +57,15 @@ export default function Home() {
     </Product>
   </HomeContainer>
 )}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await stripe.products.list()
+  console.log(response.data)
+
+  return {
+    props:{
+      list: [1,2,3]
+    }
+  }
+
+}
