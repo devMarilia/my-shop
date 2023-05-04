@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
+  swcMinify: true,
 
-module.exports = {
   images: {
-    domains: 'files.stripe.com',
+    domains: [
+      'files.stripe.com',
+    ],
   },
+
+
 }
 
 module.exports = nextConfig
