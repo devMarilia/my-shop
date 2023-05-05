@@ -1,11 +1,13 @@
 import Image from "next/image";
+import Link from 'next/link';
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { HomeContainer, Product } from "../styles/pages/home";
 
 import { stripe } from "../lib/stripe";
-import { GetStaticProps  } from "next";
+import { GetStaticProps } from "next";
 import Stripe from "stripe";
+
 
 interface HomeProps {
   products: {
@@ -27,14 +29,16 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
         return (
-          <Product key={product.id} className="keen-slider__slide">
-            <Image src={product.imageUrl} alt="" width={520} height={480} />
+          <Link href={`/products/${product.id}`} key={product.id}>
+            <Product  className="keen-slider__slide">
+              <Image src={product.imageUrl} alt="" width={520} height={480} />
 
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-          </Product>
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+            </Product>
+            </Link>
         );
       })}
     </HomeContainer>
@@ -42,31 +46,28 @@ export default function Home({ products }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const response = await stripe.products.list({
+    expand: ["data.default_price"],
+  });
 
-    const response = await stripe.products.list({
-      expand: ["data.default_price"],
-    });
-
-    const products = response.data.map((product) => {
-      const price = product.default_price as Stripe.Price;
-      console.log(product, "OI");
-      return {
-        id: product.id,
-        name: product.name,
-        imageUrl: product.images[0],
-        price:  new Intl.NumberFormat('pt-Br', {
-          style: 'currency',
-          currency: 'BRL'
-        }).format(Number(price.unit_amount) / 100),
-      };
-    });
-
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price;
+    console.log(product, "OI");
     return {
-      props: {
-        products,
-      }, 
-      revalidate: 60 * 60 / 2
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: new Intl.NumberFormat("pt-Br", {
+        style: "currency",
+        currency: "BRL",
+      }).format(Number(price.unit_amount) / 100),
     };
-  
+  });
 
+  return {
+    props: {
+      products,
+    },
+    revalidate: (60 * 60) / 2,
+  };
 };
