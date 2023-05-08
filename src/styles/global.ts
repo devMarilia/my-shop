@@ -7,7 +7,7 @@ export const globalStyles = globalCss({
     },
 
     body: {
-        backgroundColor: '$gray900',
+        backgroundColor: '$primary',
         color: '$gray100',
         'webkit-font-smoothing': 'antialiased',
     },
