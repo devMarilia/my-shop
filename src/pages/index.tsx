@@ -8,9 +8,6 @@ import { stripe } from "../lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 
-// Images Banner
-import image1 from "../../public/assets/imageBanner/image1.png";
-import image2 from "../../public/assets/imageBanner/image2.png";
 
 interface HomeProps {
   products: {
@@ -29,54 +26,10 @@ export default function Home({ products }: HomeProps) {
     },
   });
 
-  const [testeRef] = useKeenSlider(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 2000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  );
+
   return (
-    <>
-      <div ref={testeRef} className="keen-slider">
-        <div className="keen-slider__slide ">
-          <Image src={image1} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide2">
-          <Image src={image2} alt="" />
-        </div>
-        <div className="keen-slider__slide ">
-          <Image src={image1} alt=""/>
-        </div>
-      </div>
+
+  
       <HomeContainer ref={sliderRef} className="keen-slider">
         {products.map((product) => {
           return (
@@ -97,7 +50,7 @@ export default function Home({ products }: HomeProps) {
           );
         })}
       </HomeContainer>
-    </>
+
   );
 }
 
